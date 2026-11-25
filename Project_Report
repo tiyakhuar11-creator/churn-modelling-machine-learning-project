@@ -1,0 +1,95 @@
+# Bank Customer Churn Prediction
+
+## Project Overview
+This project focuses on predicting whether a bank customer is likely to leave the bank or continue using its services. Three machine learning algorithms — Logistic Regression, Random Forest, and Decision Tree — were trained and compared using Python and Scikit-learn.
+
+## Objective
+The main objective is to predict customer churn based on customer profile and account information.
+
+- `Exited = 1`: Customer left the bank.
+- `Exited = 0`: Customer stayed with the bank.
+
+This is a binary classification problem.
+
+## Dataset Information
+- **Dataset:** `Churn_Modelling.csv`
+- **Total Records:** 10,000 customers
+- **Total Columns:** 14
+- **Missing Values:** No missing values found.
+- **Target Column:** `Exited`
+- **Churned Customers:** 2,037 (approximately 20.4%)
+
+The dataset contains customer information such as credit score, age, geography, account balance, number of products, and account activity.
+
+**Features Used:**
+- CreditScore
+- Geography
+- Age
+- Tenure
+- Balance
+- NumOfProducts
+- HasCrCard
+- IsActiveMember
+- EstimatedSalary
+
+**Columns Dropped:** RowNumber, CustomerId, Surname, and Gender.
+
+## Project Workflow
+
+1. Loaded the dataset using Pandas.
+2. Explored the data using `head()`, `tail()`, `info()`, and `isnull()`.
+3. Selected relevant features for model building.
+4. Converted the categorical Geography column using Label Encoding.
+5. Separated independent variables (X) and the target variable (y).
+6. Split the data into 80% training and 20% testing sets using `random_state=42`.
+7. Applied StandardScaler, fitting it on training data and transforming both datasets.
+8. Trained three machine learning models.
+9. Compared model performance using accuracy, confusion matrices, and classification reports.
+
+## Model Performance
+
+The following models were trained and evaluated on the test dataset:
+
+| Machine Learning Model | Test Accuracy |
+|---|---:|
+| Logistic Regression | 81% |
+| Random Forest | 85% |
+| Decision Tree | 85.8% |
+
+The Decision Tree achieved the highest accuracy among the three models.
+
+For the Decision Tree, churn-class precision was approximately 0.77, while recall was approximately 0.40.
+
+This means the model correctly identifies some customers who leave the bank, but it still misses a significant number of actual churn cases.
+
+## Key Findings
+
+- Approximately 20.4% of customers left the bank.
+- The dataset has an imbalance between customers who stayed and those who left.
+- Decision Tree achieved the highest test accuracy of 85.8%.
+- Accuracy alone does not fully explain model performance because identifying customers who leave is especially important.
+
+## Limitations
+
+- The models do not identify all customers who are likely to leave the bank.
+- The Decision Tree recall is approximately 0.40, meaning around 60% of actual churn cases are missed.
+- Class imbalance affects the model's ability to identify churned customers
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Seaborn
+- Scikit-learn
+- Jupyter Notebook
+
+## Conclusion
+
+This project provided practical experience in data preprocessing, exploratory data analysis, and machine learning classification.
+
+Three different algorithms were implemented and compared. The Decision Tree achieved the best accuracy of 85.8%. However, the recall score shows that predicting customers who are likely to leave remains a challenge.
+
+Overall, the project demonstrates how machine learning can help banks understand customer behaviour, identify potential churn, and improve customer retention strategies.
+
+**Project Author:** Tiya Khuar
